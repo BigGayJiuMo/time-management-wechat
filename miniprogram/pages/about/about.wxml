@@ -1,0 +1,106 @@
+<!--pages/about/about.wxml-->
+<view class="container">
+    <view class="content">
+        <!-- 产品介绍 -->
+        <view class="section">
+        <view class="section-title">
+            <text>产品介绍</text>
+        </view>
+        <view class="section-content">
+            <text class="paragraph">时间管理助手是一款专注于提升工作效率和个人时间管理的智能应用。我们致力于帮助用户摆脱拖延症，培养专注力，建立高效的工作习惯。</text>
+            <text class="paragraph">通过科学的番茄工作法、任务管理和数据统计，我们让时间管理变得简单有效，帮助用户在工作与生活之间找到完美平衡。</text>
+            <view class="feature-list">
+            <view class="feature">
+                <view class="feature-title">番茄计时器</view>
+                <text>基于番茄工作法的科学计时，提升专注力</text>
+            </view>
+            <view class="feature">
+                <view class="feature-title">任务管理</view>
+                <text>创建、跟踪和完成您的每日任务</text>
+            </view>
+            <view class="feature">
+                <view class="feature-title">数据统计</view>
+                <text>可视化您的工作成果和进步轨迹</text>
+            </view>
+            </view>
+        </view>
+        </view>
+        <!-- 番茄工作法介绍 -->
+        <view class="section">
+        <view class="section-title">
+            <text>番茄工作法</text>
+        </view>
+        <view class="section-content">
+            <text class="paragraph">番茄工作法是由Francesco Cirillo创立的时间管理方法，该方法使用一个定时器来分割出一个25分钟的工作时间和5分钟的休息时间。</text>
+            <view class="tomato-method">
+            <view class="tomato-title">
+                <text class="tomato-title-text">为什么番茄工作法有效？</text>
+            </view>
+            <text>番茄工作法通过将工作时间分割成小块，帮助大脑保持高度专注。每个25分钟的"番茄时间"后休息5分钟，这种工作-休息的循环有助于：</text>
+            <view class="tomato-benefits">
+                <text>• 减少工作压力</text>
+                <text>• 提高注意力和专注度</text>
+                <text>• 增强决策能力</text>
+                <text>• 激励和巩固达成目标的决心</text>
+            </view>
+            </view>
+            <view class="section-subtitle">如何实践番茄工作法</view>
+            <view class="steps">
+            <view class="step">
+                <view class="step-number">1</view>
+                <view class="step-title">选择任务</view>
+                <text>确定您要完成的任务</text>
+            </view>
+            <view class="step">
+                <view class="step-number">2</view>
+                <view class="step-title">设置计时器</view>
+                <text>设定25分钟倒计时</text>
+            </view>
+            <view class="step">
+                <view class="step-number">3</view>
+                <view class="step-title">专注工作</view>
+                <text>不受干扰地工作直到计时结束</text>
+            </view>
+            <view class="step">
+                <view class="step-number">4</view>
+                <view class="step-title">短暂休息</view>
+                <text>休息5分钟，然后重复</text>
+            </view>
+            </view>
+        </view>
+        </view>
+        <!-- 开发者介绍 -->
+        <view class="section">
+        <view class="section-title">
+            <text>开发者介绍</text>
+        </view>
+        <view class="section-content">
+            <text class="paragraph">时间管理助手由04后一人打造，专注于创造能够真正改善人们生活的工具。</text>
+            <view class="developer-card">
+            <view class="developer-avatar">
+                <image src="/images/avatar-dev1.png" class="avatar-img" />
+            </view>
+            <view class="developer-info">
+                <view class="developer-name">久莫 - 技术负责人兼产品开发</view>
+                <text class="developer-desc">全栈工程师，专注于高性能应用开发</text>
+                <text class="developer-quote">"技术应该服务于人，我们致力于创造有价值的应用"</text>
+                <view class="contact-links">
+                </view>
+            </view>
+            </view>
+        </view>
+        </view>
+    </view>
+     <!-- 联系我们 -->
+     <view class="contact-info">
+            <view class="contact-title">联系我们</view>
+            <text class="contact-text">如果您有任何问题、建议或反馈，请通过以下方式与我们联系。</text>
+            <view class="email-link" bindtap="copyEmail">
+                <text>QQ邮箱: 384815197@qq.com</text>
+            </view>
+    </view>
+    <view class="footer">
+        <text>© 2025 时间管理助手 | 专注提升您的工作效率</text>
+        <text class="version">当前版本：v2.1.0</text>
+    </view>
+</view>

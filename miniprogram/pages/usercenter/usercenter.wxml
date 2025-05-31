@@ -1,0 +1,38 @@
+<!--pages/usercenter/usercenter.wxml-->
+<view class="usercenter-container">
+    <!-- 用户信息区域 -->
+    <view class="usercenter-card">
+        <view class="user-info">
+            <block wx:if="{{isLogin}}">
+            <image class="avatar" bind src="{{userInfo.avatarUrl}}"></image>
+            <text class="nickname">{{userInfo.nickName}}</text>
+            </block>
+            <block wx:else>
+            <image class="avatar" src="/images/avatar-default.png"></image>
+            <text class="nickname">未登录</text>
+            </block>
+        </view>
+
+        <!-- 操作区域 -->
+        <view class="actions">
+            <block wx:if="{{isLogin}}">
+            <button class="logout-btn" bindtap="logout">退出登录</button>
+            </block>
+            <block wx:else>
+            <button class="login-btn" bindtap="goToLogin">点击登录</button>
+            </block>
+        </view>
+        
+        <!-- 其他功能区域 -->
+        <view class="section">
+            <view class="section-title">我的服务</view>
+            <view class="section-content">
+                <navigator url="/pages/settings/settings" class="item">设置</navigator>
+                <navigator url="/pages/useragreement/useragreement" class="item">用户协议</navigator>
+                <navigator url="/pages/manual/manual" class="item">使用手册</navigator>
+                <navigator url="/pages/privacypolicy/privacypolicy" class="item">隐私政策</navigator>
+                <navigator url="/pages/about/about" class="item">关于我们</navigator>
+            </view>
+        </view>
+    </view>
+</view>

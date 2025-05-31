@@ -1,0 +1,27 @@
+<!-- pages/login/login.wxml -->
+<view class="login-container">
+    <view class="login-card">
+        <view class="avatar-section">
+            <view class="avatar-tip" wx:if="{{!avatarChanged}}">请点击下方按钮上传头像</view>
+            <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="getAvatar">
+                <image class="avatar" src="{{avatarUrl}}"></image>
+            </button>
+        </view>
+        <view class="nickname-section">
+            <view class="nickname-tip" wx:if="{{!nickNameChanged}}">点击下方输入昵称</view>
+            <input type="nickname" class="nickname-input" placeholder="最大长度不超过10个字" maxlength="10" placeholder-style="color: rgba(255, 255, 255, 0.6);"value="{{nickName}}"bindinput="getNickname"/>
+            <!-- 添加字数统计 -->
+            <view class="word-count">
+                <text>{{nickName.length}}</text>/10
+            </view>
+        </view>
+        <button class="login-btn" bindtap="handleLogin" disabled="{{loginDisabled}}">{{loginText}}</button>
+        <view class="agreement">
+            <checkbox checked="{{agreed}}" bindtap="toggleAgreement"/>
+            <text style="color: #fff;">我已阅读并同意</text>
+            <text class="link" bindtap="navigateToAgreement">《用户协议》</text>
+            <text style="color: #fff;">和</text>
+            <text class="link" bindtap="navigateToPrivacy">《隐私政策》</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,90 @@
+<!-- pages/statistics/statistics.wxml -->
+<view class="container">
+    <!-- 统计卡片 -->
+    <view class="stats-card">
+        <view class="stat-item">
+            <text class="stat-value">{{stats.totalCount}}</text>
+            <text class="stat-label">累计专注</text>
+        </view>
+        <view class="stat-item">
+            <text class="stat-value">{{stats.todayCount}}</text>
+            <text class="stat-label">今日专注</text>
+        </view>
+        <view class="stat-item">
+            <text class="stat-value">{{stats.totalMinutes}}</text>
+            <text class="stat-label">累计时长(分钟)</text>
+        </view>
+    </view>
+    <!-- 过滤控制 -->
+    <view class="filter-container">
+        <view class="tabs-container">
+            <view class="tabs">
+                <text class="tab {{activeTab === 'all' ? 'active' : ''}}" 
+                      bindtap="switchTab" 
+                      data-tab="all">全部</text>
+                <text class="tab {{activeTab === 'today' ? 'active' : ''}}" 
+                      bindtap="switchTab" 
+                      data-tab="today">今日</text>
+                <text class="tab {{activeTab === 'week' ? 'active' : ''}}" 
+                      bindtap="switchTab" 
+                      data-tab="week">本周</text>
+                <text class="tab {{activeTab === 'custom' ? 'active' : ''}}" 
+                      bindtap="switchTab" 
+                      data-tab="custom">自定义</text>
+            </view>
+            <!-- 底部指示器 - 使用计算属性 -->
+            <view class="tab-indicator" style="transform: translateX({{indicatorPositionWithUnit}})"></view>
+        </view>
+        <view class="filter-controls" wx:if="{{activeTab === 'custom'}}">
+            <view class="filter-item">
+                <text class="filter-label">开始日期:</text>
+                <picker mode="date" value="{{dateRange[0]}}" bindchange="bindDateChange" data-field="start">
+                    <text class="filter-value">{{dateRange[0] || '选择日期'}}</text>
+                </picker>
+            </view>
+            <view class="filter-item">
+                <text class="filter-label">结束日期:</text>
+                <picker mode="date" value="{{dateRange[1]}}" bindchange="bindDateChange" data-field="end">
+                    <text class="filter-value">{{dateRange[1] || '选择日期'}}</text>
+                </picker>
+            </view>
+            <view class="filter-item">
+                <text class="filter-label">任务分类:</text>
+                <picker mode="selector" range="{{categories}}" value="{{filterCateIndex}}" bindchange="bindCateChange">
+                    <text class="filter-value">{{filterCateDisplay}}</text>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <!-- 日志列表 -->
+    <view class="logs-container">
+        <view class="section-header">
+            <text class="section-title">专注记录</text>
+            <text class="section-count">共 {{logs.length}} 条</text>
+        </view>
+        <!-- 使用 scroll-view 实现滚动 -->
+        <scroll-view class="logs-scroll" scroll-y="true" style="height: 100%;">
+            <view class="logs-list">
+                <block wx:if="{{logs.length > 0}}">
+                    <view class="log-item" wx:for="{{logs}}" wx:key="index">
+                        <view class="log-header">
+                            <text class="log-date">{{formatDate(item.date)}}</text>
+                            <text class="log-time">{{formatTime(item.date)}}</text>
+                        </view>
+                        <view class="log-content">
+                            <text class="log-cate">{{item.cate}}</text>
+                            <text class="log-duration">{{item.time}}分钟</text>
+                        </view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="empty-tip">
+                        <image src="/images/empty.png" class="empty-icon" />
+                        <text>暂无专注记录</text>
+                        <text class="empty-sub">开始专注后记录将显示在这里</text>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </view>
+</view>

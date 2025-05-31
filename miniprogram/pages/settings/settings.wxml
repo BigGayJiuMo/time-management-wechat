@@ -1,0 +1,157 @@
+<!-- pages/settings/settings.wxml -->
+<view class="container">
+    <!-- 个人资料卡片 -->
+    <view class="card">
+        <view class="card-header">
+        <text class="card-title">个人资料</text>
+        </view>
+        <!-- 头像设置 -->
+        <view class="item" bindtap="onAvatarTap">
+            <view class="item-left">
+                <text class="item-label">头像</text>
+            </view>
+            <view class="item-right">
+                <image src="{{userInfo.avatarUrl}}" class="avatar-preview"></image>
+            </view>
+        </view>
+        <!-- 昵称设置 -->
+        <view class="item" bindtap="onNicknameTap">
+            <view class="item-left">
+                <text class="item-label">昵称</text>
+            </view>
+            <view class="item-right">
+                <text class="nickname-preview">{{userInfo.nickName}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="card">
+        <view class="card-header">
+            <text class="card-title">应用设置</text>
+        </view>
+        <!-- 屏幕常亮开关 -->
+        <view class="item">
+            <view class="item-left">
+                <text class="item-label">屏幕常亮</text>
+            </view>
+            <view class="item-right">
+                <switch checked="{{keepScreenOn}}" bindchange="toggleKeepScreenOn" color="#FF6B6B"/>
+            </view>
+        </view>
+        <!-- 振动开关 -->
+        <view class="item">
+            <view class="item-left">
+                <text class="item-label">振动提醒</text>
+            </view>
+            <view class="item-right">
+                <switch checked="{{vibrateOn}}" bindchange="toggleVibrate" color="#FF6B6B"/>
+            </view>
+        </view>
+    </view>
+    <!-- 账号管理卡片 -->
+    <view class="card">
+        <view class="card-header">
+            <text class="card-title">账号管理</text>
+        </view>
+        <!-- 清空数据 -->
+        <view class="item" bindtap="showClearDataModal">
+            <view class="item-left">
+                <text class="item-label clear-data-label">清空数据</text>
+            </view>
+        </view>
+        <!-- 注销账号 -->
+        <view class="item" bindtap="showDeleteAccountModal">
+            <view class="item-left">
+                <text class="item-label delete-label">注销账号</text>
+            </view>
+        </view>
+    </view>
+    <!-- 昵称修改弹窗 -->
+    <view wx:if="{{showNicknameModal}}" class="modal">
+        <view class="modal-content">
+        <view class="modal-header">
+            <text>修改昵称</text>
+        </view>
+        <view class="modal-body">
+            <input class="nickname-input" value="{{newNickname}}" placeholder="请输入新昵称（最大长度不超过10个字）"bindinput="onNicknameInput"focus="{{nicknameInputFocus}}"maxlength="10"/>
+            <view class="word-count">
+                <text>{{newNickname.length}}</text>/10
+            </view>
+        </view>
+        <view class="modal-footer">
+            <button class="cancel-btn" bindtap="cancelNickname">取消</button>
+            <button class="confirm-btn" bindtap="confirmNickname">确定</button>
+        </view>
+        </view>
+    </view>
+    <!-- 清空数据确认弹窗 -->
+    <view wx:if="{{showClearDataModal}}" class="modal">
+        <view class="modal-content clear-data-modal">
+            <view class="modal-header">
+                <image src="/images/icons/warning.png" class="warning-icon"></image>
+                <text class="warning-title">清空数据</text>
+            </view>
+            <view class="modal-body">
+                <text class="warning-text">此操作将永久删除您的所有任务和统计数据：</text>
+                <view class="warning-list">
+                    <text class="warning-item">• 所有任务数据将被清除</text>
+                    <text class="warning-item">• 所有统计信息将被删除</text>
+                    <text class="warning-item">• 个人资料不会受影响</text>
+                    <text class="warning-item">• 此操作不可恢复</text>
+                </view>
+                <view class="countdown-container">
+                    <text class="countdown-text">请在输入框中输入 "CLEAR" 确认操作</text>
+                    <view class="countdown-box" wx:if="{{countdown > 0}}">
+                        <text class="countdown-number">{{countdown}}</text>
+                        <text class="countdown-label">秒后启用确认按钮</text>
+                    </view>
+                </view>
+                <input class="confirm-input" placeholder="请输入 'CLEAR' 确认操作"bindinput="onClearDataConfirmInput"value="{{clearDataConfirmation}}"/>
+            </view>
+            <view class="modal-footer">
+                <button class="cancel-btn" bindtap="cancelClearData">取消</button>
+                <button class="clear-btn {{canClearData ? '' : 'disabled'}}" bindtap="confirmClearData" disabled="{{!canClearData}}">
+                    <text wx:if="{{countdown > 0}}">({{countdown}}s) 确认清空</text>
+                    <text wx:else>确认清空</text>
+                </button>
+            </view>
+        </view>
+    </view>
+    <!-- 注销账号确认弹窗 -->
+    <view wx:if="{{showDeleteAccountModal}}" class="modal">
+        <view class="modal-content delete-modal">
+            <view class="modal-header">
+                <image src="/images/icons/warning.png" class="warning-icon"></image>
+                <text class="warning-title">注销账号</text>
+            </view>
+            <view class="modal-body">
+                <text class="warning-text">此操作将永久删除您的账号和所有数据：</text>
+                <view class="warning-list">
+                    <text class="warning-item">• 所有个人资料将被删除</text>
+                    <text class="warning-item">• 所有任务数据将被清除</text>
+                    <text class="warning-item">• 所有统计信息将被删除</text>
+                    <text class="warning-item">• 此操作不可恢复</text>
+                </view>
+                <view class="countdown-container">
+                    <text class="countdown-text">请在输入框中输入 "DELETE" 确认注销</text>
+                    <view class="countdown-box" wx:if="{{countdown > 0}}">
+                        <text class="countdown-number">{{countdown}}</text>
+                        <text class="countdown-label">秒后启用确认按钮</text>
+                    </view>
+                </view>
+                <input class="confirm-input" placeholder="请输入 'DELETE' 确认操作"bindinput="onDeleteConfirmInput"value="{{deleteConfirmation}}"/>
+            </view>
+            <view class="modal-footer">
+                <button class="cancel-btn" bindtap="cancelDeleteAccount">取消</button>
+                <button class="delete-btn {{canDeleteAccount ? '' : 'disabled'}}" bindtap="confirmDeleteAccount" disabled="{{!canDeleteAccount}}">
+                    <text wx:if="{{countdown > 0}}">({{countdown}}s) 确认注销</text>
+                    <text wx:else>确认注销</text>
+                </button>
+            </view>
+        </view>
+    </view>
+    <!-- 操作提示 -->
+    <view wx:if="{{showToast}}" class="toast" animation="{{toastAnimation}}">
+        <image src="/images/icons/success.png" class="toast-icon"></image>
+        {{toastMessage}}
+    </view>
+</view>

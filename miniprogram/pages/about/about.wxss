@@ -1,0 +1,292 @@
+/* pages/about/about.wxss */
+.container {
+    background-color: #f5f7fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    line-height: 1.6;
+}
+.content {
+    flex: 1;
+    padding: 40rpx 30rpx;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.section {
+    margin-bottom: 50rpx;
+}
+
+.section-title {
+    font-size: 34rpx;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 25rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.section-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 15rpx;
+}
+
+.section-content {
+    padding-left: 0rpx;
+}
+
+.paragraph {
+    display: block;
+    margin-bottom: 25rpx;
+    font-size: 30rpx;
+    color: #555;
+}
+
+.feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30rpx 0;
+}
+
+.feature {
+    width: calc(50% - 20rpx);
+    background: #f0f7ff;
+    border-radius: 20rpx;
+    padding: 30rpx;
+    margin: 10rpx;
+    text-align: center;
+}
+
+.feature-icon {
+    width: 60rpx;
+    height: 60rpx;
+    margin: 0 auto 20rpx;
+}
+
+.feature-title {
+    font-weight: 600;
+    margin-bottom: 15rpx;
+    color: #2c3e50;
+    font-size: 30rpx;
+}
+
+.tomato-method {
+    background: #f8f9fa;
+    border-radius: 20rpx;
+    padding: 30rpx;
+    margin: 30rpx 0;
+    border-left: 8rpx solid #ff6b6b;
+}
+
+.tomato-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.tomato-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 15rpx;
+}
+
+.tomato-title-text {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.tomato-benefits {
+    margin-top: 20rpx;
+}
+
+.tomato-benefits text {
+    display: block;
+    margin-bottom: 10rpx;
+    font-size: 28rpx;
+    color: #555;
+}
+
+.section-subtitle {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 30rpx 0 20rpx;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin: 30rpx 0;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+    padding: 0 15rpx;
+    position: relative;
+}
+
+.step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -5rpx;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 36rpx;
+}
+
+.step-number {
+    width: 60rpx;
+    height: 60rpx;
+    background: #2575fc;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20rpx;
+    font-weight: bold;
+    font-size: 32rpx;
+}
+
+.step-title {
+    font-weight: 600;
+    margin-bottom: 10rpx;
+    font-size: 28rpx;
+    color: #2c3e50;
+}
+
+.developer-card {
+    display: flex;
+    align-items: flex-start;
+    background: #f8f9fa;
+    border-radius: 20rpx;
+    padding: 30rpx;
+    margin-top: 30rpx;
+}
+
+.developer-avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    background: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30rpx;
+    overflow: hidden;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+}
+
+.developer-info {
+    flex: 1;
+}
+
+.developer-name {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10rpx;
+}
+
+.developer-desc {
+    display: block;
+    font-size: 28rpx;
+    color: #666;
+    margin-bottom: 15rpx;
+}
+
+.developer-quote {
+    display: block;
+    font-size: 26rpx;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 20rpx;
+}
+
+.contact-links {
+    display: flex;
+    gap: 20rpx;
+}
+
+.contact-icon {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.footer {
+    text-align: center;
+    padding: 30rpx;
+    color: #888;
+    font-size: 26rpx;
+    background: #f9f9f9;
+}
+
+.version {
+    display: block;
+    margin-top: 15rpx;
+}
+
+/* 响应式适配 */
+@media (max-width: 750px) {
+    .feature {
+    width: 100%;
+    margin: 10rpx 0;
+    }
+    
+    .steps {
+    flex-direction: column;
+    }
+    
+    .step {
+    margin-bottom: 50rpx;
+    }
+    
+    .step:not(:last-child)::after {
+    content: '↓';
+    right: auto;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%) translateY(-25rpx);
+    }
+}
+.contact-info {
+    background: #ffffff;
+    border-radius: 20rpx;
+    padding: 40rpx 30rpx;
+    margin: 50rpx 0;
+    text-align: center;
+}
+.contact-title {
+    font-size: 34rpx;
+    font-weight: 600;
+    margin-bottom: 25rpx;
+    color: #2575fc;
+}
+.contact-text {
+    display: block;
+    margin-bottom: 30rpx;
+    font-size: 28rpx;
+    color: #555;
+}
+.email-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #2575fc;
+    color: white;
+    padding: 20rpx 40rpx;
+    border-radius: 50rpx;
+    font-weight: 500;
+    margin-top: 15rpx;
+}

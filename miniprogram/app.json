@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/usercenter/usercenter",
+    "pages/statistics/statistics",
+    "pages/settings/settings",
+    "pages/about/about",
+    "pages/useragreement/useragreement",
+    "pages/privacypolicy/privacypolicy",
+    "pages/manual/manual"
+  ],
+  "permission": {
+    "scope.writeVibrate": {
+      "desc": "用于倒计时结束时的提醒"
+    }
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "时间管理",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#7dc5eb",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "计时",
+        "iconPath": "images/icons/index1.png",
+        "selectedIconPath": "images/icons/index.png"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "text": "统计",
+        "iconPath": "images/icons/statistics1.png",
+        "selectedIconPath": "images/icons/statistics.png"
+      },
+      {
+        "pagePath": "pages/usercenter/usercenter",
+        "text": "我的",
+        "iconPath": "images/icons/usercenter1.png",
+        "selectedIconPath": "images/icons/usercenter.png"
+      }
+    ]
+  }
+}

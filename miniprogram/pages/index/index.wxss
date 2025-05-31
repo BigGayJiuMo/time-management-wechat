@@ -1,0 +1,251 @@
+/**index.wxss**/
+page {
+    background: linear-gradient(135deg, #f889e9 0%, #eea35d 100%);
+    min-height: 97vh;
+    overflow: hidden;
+}
+.container {
+    padding: 20rpx;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.slider {
+    width: 100%;
+    margin: 40rpx auto;
+}
+.slider-value {
+    color: #fff;
+    text-align: center;
+    font-size: 32rpx;
+    margin-top: 20rpx;
+}
+.task_text {
+    height: 120rpx;
+    margin: 20rpx auto;
+    text-align: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+.task_text .task_title {
+    font-size: 35rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+.task_text .task_desc {
+    font-size: 30rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    color: #fff;
+}
+/* 任务区域 */
+.task_cate_scroll {
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+    -webkit-overflow-scrolling: touch;
+    background-clip: padding-box;
+    padding: 1px;
+}
+.task_cate_scroll::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none;
+}
+.task_cate {
+    width: 660rpx;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 40rpx;
+}
+.cate_text {
+    color: rgb(230, 240, 140);
+}
+.task_cate .cate_item {
+    width: 220rpx;
+    height: 130rpx;
+    text-align: center;
+    margin-bottom: 50rpx;
+}
+.task_cate .cate_item .cate_icon {
+    height: 70rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-icon {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background: #fff;
+    color: #f889e9;
+    font-size: 40rpx;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 50rpx;
+}
+.task_cate .cate_item .cate_icon image {
+    width: 50rpx;
+    height: 50rpx;
+}
+.task_cate .cate_item .cate_text {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+}
+.task_cate .cate_item .cate_text_active {
+    color: #ffffff;
+}
+/* 按钮 */
+.start-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20rpx;
+    margin-bottom: 10%;
+    flex-shrink: 0;
+}
+.start {
+    width: 280rpx;
+    height: 90rpx;
+    line-height: 60rpx;
+    border-radius: 50rpx;
+    background: linear-gradient(to right, #f889e9 0%, #eea35d);
+    color: #fff;
+    font-size: 32rpx;
+    box-shadow: 0 10rpx 20rpx rgba(37, 117, 252, 0.3);
+}
+/* 专注时钟 */
+.clock {
+    overflow: hidden;
+}
+.progress {
+    width: 400rpx;
+    height: 400rpx;
+    margin: 140rpx auto;
+    position: relative;
+}
+.progress .progress_bg, .progress_active {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 400rpx;
+    height: 400rpx;
+}
+.progress .progress_text {
+    width: 160rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    color: #ffffff;
+    text-align: center;
+    position: absolute;
+    left: 120rpx;
+    top: 170rpx;
+}
+.btns .okBtn, .btns .pauseBtn, .btns .continueBtn, .btns .cancelBtn {
+    width: 280rpx;
+    height: 90rpx;
+    line-height: 60rpx;
+    border-radius: 50rpx;
+    background: linear-gradient(to right, #f889e9 0%, #eea35d);
+    color: #fff;
+    font-size: 32rpx;
+    margin: 0 auto 20rpx auto;
+    box-shadow: 0 10rpx 20rpx rgba(37, 117, 252, 0.3);
+}
+/* 自定义任务 */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    width: 80%;
+    background: #fff;
+    border-radius: 20rpx;
+    overflow: hidden;
+    box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.3);
+}
+.modal-header {
+    padding: 30rpx;
+    background: linear-gradient(to right, #f889e9, #eea35d);
+    color: white;
+    font-size: 36rpx;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.close-btn {
+    font-size: 50rpx;
+    line-height: 40rpx;
+    cursor: pointer;
+}
+.modal-body {
+    padding: 40rpx;
+}
+.task-input {
+    border: 2rpx solid #f889e9;
+    border-radius: 10rpx;
+    padding: 20rpx;
+    margin-bottom: 40rpx;
+    font-size: 32rpx;
+}
+.modal-footer {
+    display: flex;
+    padding: 20rpx;
+    border-top: 1rpx solid #eee;
+}
+.modal-footer button {
+    flex: 1;
+    margin: 0 20rpx;
+    height: 80rpx;
+    line-height: 50rpx;
+    border-radius: 40rpx;
+    font-size: 32rpx;
+}
+.cancel-btn {
+    background: #f5f5f5;
+    color: #666;
+}
+.save-btn {
+    background: linear-gradient(to right, #f889e9, #eea35d);
+    color: white;
+}
+.save-btn[disabled] {
+    background: #ccc;
+}
+.modal-content .modal-body {
+    text-align: center;
+    font-size: 32rpx;
+    padding: 30rpx;
+}
+.confirm-btn {
+    background: linear-gradient(to right, #f889e9, #eea35d);
+    color: white;
+    width: 100%;
+    height: 80rpx;
+    line-height: 50rpx;
+    border-radius: 40rpx;
+    font-size: 32rpx;
+}
+.modal-body {
+    text-align: center;
+    padding: 40rpx 30rpx;
+    font-size: 32rpx;
+    color: #333;
+}

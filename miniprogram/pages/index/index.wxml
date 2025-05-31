@@ -1,0 +1,98 @@
+<!--index.wxml-->
+<view class="container" hidden="{{clockShow}}">
+    <!-- 时间选择滑块 -->
+    <view class="slider">
+        <slider style="margin-left: 10%;margin-top: 10%;" min="1" max="60" show-value activeColor="#fff"
+        backgroundColor="#000000" value="{{time}}" bindchange="slideChange"></slider>
+    </view>
+    <!-- 任务描述 -->
+    <view class="task_text">
+        <view class="task_title">选择一个任务</view>
+        <view class="task_desc">在接下来的{{time}}分钟内，您将专注做这件事</view>
+    </view>
+    <!-- 任务分类 -->
+    <scroll-view class="task_cate_scroll" scroll-y="true" show-scrollbar="{{false}}" scroll-with-animation="true" style="height:60vh">
+        <view class="task_cate">
+            <view wx:for="{{cateArr}}" class="cate_item" wx:key="_id || index"bindtap="clickCate" bindlongpress="handleLongPress"data-index="{{index}}">
+                <view class="cate_icon">
+                    <image wx:if="{{item.icon !== 'custom'}}" src="../../images/{{item.icon}}.png"></image>
+                    <image wx:else src="../../images/custom.png"></image>
+                </view>
+                <view class='cate_text {{index == cateActive ? "cate_text_active" : ""}}'>
+                    {{item.text}}
+                </view>
+            </view>
+            <view class="cate_item" bindtap="showAddTaskModal">
+                <view class="cate_icon">
+                    <view class="custom-icon">+</view>
+                </view>
+                <view class="cate_text">自定义</view>
+            </view>
+        </view>
+    </scroll-view>
+    <!-- 开始专注按钮 -->
+    <view class="start-container">
+        <button class="start" bindtap="start">开始专注</button>
+    </view>
+</view>
+<!-- 专注模式倒计时 -->
+<view class="clock" hidden="{{!clockShow}}" style="height:{{clockHeight}}rpx">
+    <view class="progress">
+        <canvas canvas-id="progress_bg" class="progress_bg"></canvas>
+        <canvas canvas-id="progress_active" class="progress_active"></canvas>
+        <view class="progress_text">{{timeStr}}</view>
+    </view>
+    <view class="btns">
+        <button class="okBtn" bindtap="ok" wx:if="{{okShow}}">返回</button>
+        <button class="pauseBtn" bindtap="pause" wx:if="{{pauseShow}}">暂停</button>
+        <view class="continueCancelBtn" wx:if="{{continueCancelShow}}">
+            <button class="continueBtn" bindtap="continue">继续</button>
+            <button class="cancelBtn" bindtap="cancel">放弃</button>
+        </view>
+    </view>
+</view>
+<!-- 自定义任务模态框 -->
+<view class="modal-container" hidden="{{!showAddTaskModal}}">
+    <view class="modal-content">
+        <view class="modal-header">
+            <text>添加自定义任务</text>
+            <text class="close-btn" bindtap="hideAddTaskModal">×</text>
+        </view>
+        <view class="modal-body">
+            <input class="task-input" placeholder="输入任务名称" value="{{newTaskName}}" bindinput="onTaskNameInput" focus/>
+        </view>
+        <view class="modal-footer">
+            <button class="cancel-btn" bindtap="hideAddTaskModal">取消</button>
+            <button class="save-btn" bindtap="saveCustomTask" disabled="{{!newTaskName || isSaving}}">{{isSaving ? '保存中...' : '保存'}}</button>
+        </view>
+    </view>
+</view>
+<!-- 删除确认模态框 -->
+<view class="modal-container" hidden="{{!showDeleteConfirm}}">
+    <view class="modal-content" style="width: 70%;">
+        <view class="modal-header">
+            <text>删除确认</text>
+        </view>
+        <view class="modal-body">
+            <text>确定要删除"{{deleteTaskName}}"任务吗？</text>
+        </view>
+        <view class="modal-footer">
+            <button class="cancel-btn" bindtap="cancelDelete">取消</button>
+            <button class="save-btn" bindtap="confirmDelete">删除</button>
+        </view>
+    </view>
+</view>
+<!-- 倒计时结束弹窗 -->
+<view class="modal-container" hidden="{{!showFinishModal}}">
+    <view class="modal-content" style="width: 70%;">
+        <view class="modal-header">
+            <text>专注完成</text>
+        </view>
+        <view class="modal-body">
+            <text>恭喜！您已完成{{time}}分钟的{{cateArr[cateActive].text}}专注</text>
+        </view>
+        <view class="modal-footer">
+            <button class="confirm-btn" bindtap="closeFinishModal">确定</button>
+        </view>
+    </view>
+</view>

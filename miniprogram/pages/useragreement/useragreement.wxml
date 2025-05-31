@@ -1,0 +1,66 @@
+<!--pages/useragreement/useragreement.wxml-->
+<view class="container">
+    <view class="content">
+        <view class="section">
+            <view class="section-title">
+                <text>一、接受条款</text>
+            </view>
+            <view class="section-content">
+                <text class="paragraph">用户使用本小程序即视为同意本协议及《隐私政策》，请仔细阅读。</text>
+                <text class="paragraph">开发者保留修改本协议的权利，修改后将通过小程序公告更新，继续使用视为接受变更。</text>
+            </view>
+        </view>
+        <view class="section">
+            <view class="section-title">
+                <text>二、服务说明</text>
+            </view>
+            <view class="section-content">
+                <text class="paragraph"><text class="bold">功能描述：</text>提供番茄工作法计时器、任务管理、数据统计等专注力工具。</text>
+                <text class="paragraph"><text class="bold">使用限制：</text>用户需年满12周岁，不得利用本服务从事违法违规活动。</text>
+            </view>
+        </view>
+        <view class="section">
+            <view class="section-title">
+                <text>三、用户责任</text>
+            </view>
+            <view class="section-content">
+                <text class="paragraph">禁止传播恶意代码、干扰服务正常运行或窃取他人数据。</text>
+                <text class="paragraph">用户自行承担因使用不当导致的时间管理损失。</text>
+            </view>
+        </view>
+        <view class="section">
+            <view class="section-title">
+                <text>四、知识产权</text>
+            </view>
+            <view class="section-content">
+                <text class="paragraph">小程序界面设计、图标、文字内容等知识产权归开发者所有，未经授权不得复制或商用。</text>
+            </view>
+        </view>
+        <view class="section">
+            <view class="section-title">
+                <text>五、免责声明</text>
+            </view>
+            <view class="section-content">
+                <text class="paragraph">服务按"现状"提供，不承诺绝对稳定性，对计时误差导致的损失不承担责任。</text>
+                <text class="paragraph">因不可抗力（如网络故障、系统维护）导致的服务中断不视为违约。</text>
+            </view>
+        </view>
+        <view class="section">
+            <view class="section-title">
+                <text>六、终止服务</text>
+            </view>
+            <view class="section-content">
+                <text class="paragraph">开发者有权在用户违反协议时暂停或终止服务，不退还虚拟数据（如历史专注记录）。</text>
+            </view>
+        </view>
+        <view class="highlight">
+            <text>请您在使用本服务前仔细阅读并理解以上协议内容。如您不同意本协议的任何条款，请立即停止使用本小程序。</text>
+            </view>
+            <view class="date-info">
+            <text>生效日期：2025年5月28日</text>
+        </view>
+    </view>
+    <view class="footer">
+        <text>© 2025 时间管理助手 | 专注提升你的工作效率</text>
+    </view>
+</view>

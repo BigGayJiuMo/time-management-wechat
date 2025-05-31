@@ -1,0 +1,312 @@
+/* pages/settings/settings.wxss */
+.container {
+    min-height: 100vh;
+    padding: 40rpx;
+    background: linear-gradient(135deg, #f889e9 0%, #eea35d 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+.card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20rpx);
+    border-radius: 24rpx;
+    padding-right: 20rpx;
+    margin-bottom: 40rpx;
+    box-shadow: 0 20rpx 60rpx rgba(0, 0, 0, 0.1);
+    border: 1rpx solid rgba(255, 255, 255, 0.3);
+}
+.card-header {
+    display: flex;
+    align-items: center;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+    padding-left: 30rpx;
+    border-bottom: 1rpx solid rgba(255, 255, 255, 0.3);
+}
+.card-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 16rpx;
+}
+.card-title {
+    font-size: 36rpx;
+    font-weight: 600;
+    color: #fff;
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30rpx;
+    border-bottom: 1rpx solid rgba(255, 255, 255, 0.2);
+}
+.item:last-child {
+    border-bottom: none;
+}
+.item-left {
+    display: flex;
+    align-items: center;
+}
+.item-label {
+    font-size: 32rpx;
+    color: #fff;
+    font-weight: 500;
+}
+.delete-label {
+    color: #ffffff;
+}
+.item-right {
+    display: flex;
+    align-items: center;
+}
+.avatar-preview {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    border: 2rpx solid rgba(255, 255, 255, 0.5);
+}
+.nickname-preview {
+    font-size: 32rpx;
+    color: rgba(255, 255, 255, 0.9);
+    margin-right: 10rpx;
+}
+.arrow {
+    width: 24rpx;
+    height: 24rpx;
+}
+/* 模态框样式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+.modal-content {
+    background-color: white;
+    border-radius: 24rpx;
+    width: 80%;
+    max-width: 600rpx;
+    overflow: hidden;
+}
+.delete-modal {
+    max-width: 650rpx;
+}
+.modal-header {
+    padding: 40rpx 30rpx 30rpx;
+    text-align: center;
+    font-size: 36rpx;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.word-count {
+    text-align: right;
+    font-size: 26rpx;
+    color: #999;
+    margin-top: 10rpx;
+}
+.warning-icon {
+    width: 60rpx;
+    height: 60rpx;
+    margin-bottom: 20rpx;
+}
+.warning-title {
+    color: #ff4d4d;
+    font-size: 40rpx;
+}
+.modal-body {
+    padding: 0 30rpx 30rpx;
+}
+.nickname-input {
+    width: 100%;
+    height: 90rpx;
+    padding: 0 20rpx;
+    background-color: #f5f5f5;
+    border-radius: 12rpx;
+    font-size: 32rpx;
+}
+.warning-text {
+    font-size: 30rpx;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20rpx;
+    display: block;
+}
+.warning-list {
+    margin-bottom: 30rpx;
+    padding-left: 20rpx;
+}
+.warning-item {
+    display: block;
+    font-size: 28rpx;
+    color: #666;
+    line-height: 1.8;
+}
+.confirm-input {
+    width: 100%;
+    height: 80rpx;
+    padding: 0 20rpx;
+    border: 1rpx solid #eee;
+    border-radius: 12rpx;
+    font-size: 30rpx;
+    margin-top: 10rpx;
+}
+.modal-footer {
+    display: flex;
+    border-top: 1rpx solid #eee;
+}
+.cancel-btn, .confirm-btn, .delete-btn {
+    flex: 1;
+    padding: 28rpx 0;
+    text-align: center;
+    font-size: 32rpx;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+.cancel-btn {
+    color: #666;
+    border-right: 1rpx solid #eee;
+}
+.confirm-btn {
+    color: #4b6ee6;
+}
+.delete-btn {
+    color: #ff4d4d;
+}
+.delete-btn[disabled] {
+    color: #ccc;
+}
+.toast {
+    position: fixed;
+    top: 120rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20rpx 40rpx;
+    border-radius: 12rpx;
+    color: white;
+    font-size: 28rpx;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+.toast-icon {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 12rpx;
+}
+.countdown-container {
+    margin-top: 30rpx;
+    padding: 20rpx;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12rpx;
+    text-align: center;
+}
+.countdown-text {
+    font-size: 28rpx;
+    color: #ff4d4d;
+    display: block;
+    margin-bottom: 20rpx;
+    font-weight: 500;
+}
+.countdown-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15rpx 0;
+}
+.countdown-number {
+    font-size: 48rpx;
+    font-weight: bold;
+    color: #ff4d4d;
+    margin-right: 10rpx;
+}
+.countdown-label {
+    font-size: 28rpx;
+    color: #666;
+}
+.confirm-input {
+    width: 100%;
+    height: 80rpx;
+    padding: 0 20rpx;
+    border: 1rpx solid #eee;
+    border-radius: 12rpx;
+    font-size: 30rpx;
+    margin-top: 10rpx;
+    background-color: #fff;
+}
+.delete-btn[disabled] {
+    background-color: #f5f5f5;
+    color: #ccc;
+}
+.delete-btn.disabled {
+    background-color: #cccccc;
+    color: #999999;
+}
+.countdown-container {
+    margin-top: 20px;
+    text-align: center;
+}
+.countdown-box {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+.countdown-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e64340;
+    margin-right: 5px;
+}
+.countdown-label {
+    font-size: 14px;
+    color: #666;
+}
+.confirm-input {
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+/* 清空数据按钮样式 */
+.clear-data-label {
+    color: #ffffff;
+}
+/* 清空数据弹窗样式 */
+.clear-data-modal .modal-header {
+    background-color: #ffffff;
+}
+
+.clear-data-modal .warning-title {
+    color: #ff4d4d;
+}
+
+.clear-btn {
+    color: #ff4d4d;
+}
+
+.clear-btn[disabled] {
+    background-color: #f5f5f5;
+    color: #ccc;
+}
+
+.clear-btn.disabled {
+    background-color: #cccccc;
+    color: #999999;
+}

@@ -1,0 +1,77 @@
+/* pages/manual/manual.wxss */
+page {
+    background: linear-gradient(135deg, #f889e9 0%, #eea35d 100%);
+    min-height: 100vh;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+    color: #fff;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.section {
+    width: 85%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20rpx;
+    padding: 30rpx;
+    margin-bottom: 30rpx;
+    backdrop-filter: blur(10px);
+}
+.section-title {
+    font-size: 36rpx;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+    color: #fff;
+    border-left: 8rpx solid #ff6b6b;
+    padding-left: 20rpx;
+}
+.section-content {
+    font-size: 30rpx;
+    line-height: 1.6;
+}
+.feature {
+    display: flex;
+    margin: 30rpx 0;
+}
+.feature-icon {
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+.feature-text {
+    flex: 1;
+}
+.step {
+    margin: 25rpx 0;
+    display: flex;
+    align-items: flex-start;
+}
+.step-number {
+    width: 50rpx;
+    height: 50rpx;
+    background: #ff6b6b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20rpx;
+    font-size: 28rpx;
+    flex-shrink: 0;
+}
+.step-content {
+    flex: 1;
+}
+.tip {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10rpx;
+    padding: 20rpx;
+    margin: 20rpx 0;
+    border-left: 6rpx solid #ff6b6b;
+}
