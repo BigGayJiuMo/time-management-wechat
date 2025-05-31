@@ -3,7 +3,7 @@
 [![GitHub license](https://img.shields.io/github/license/BigGayJiuMo/time-management-wechat)](https://github.com/BigGayJiuMo/time-management-wechat/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/BigGayJiuMo/time-management-wechat)](https://github.com/BigGayJiuMo/time-management-wechat/stargazers)
 
-> 基于番茄工作法的专注力提升工具 | [查看演示](#功能演示)
+> 基于番茄工作法的专注力提升工具 
 
 时间管理助手是一款基于番茄工作法的专注力提升工具，帮助用户高效管理时间、提升工作效率。通过科学的计时方法、任务管理和数据统计，让时间管理变得简单有效。
 
