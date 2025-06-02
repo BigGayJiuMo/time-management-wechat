@@ -1,8 +1,6 @@
-[
-    {"text": "工作", "icon": "work"},
-    {"text": "学习", "icon": "study"},
-    {"text": "阅读", "icon": "read"},
-    {"text": "写作", "icon": "write"},
-    {"text": "运动", "icon": "sport"},
-    {"text": "思考", "icon": "think"}
-  ]
+{"text": "工作", "icon": "work"}
+{"text": "学习", "icon": "study"}
+{"text": "阅读", "icon": "read"}
+{"text": "写作", "icon": "write"}
+{"text": "运动", "icon": "sport"}
+{"text": "思考", "icon": "think"}
