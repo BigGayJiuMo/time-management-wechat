@@ -19,7 +19,7 @@ exports.main = async (event, context) => {
     
     // 删除用户数据（使用系统_openid字段）
     const userRes = await db.collection('users').where({
-      _openid: openid
+      openid: openid
     }).remove();
     
     // 删除用户自定义任务
